@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "react-todo": "apps/react-todo",
+    "react-todo-e2e": "apps/react-todo-e2e"
+  }
+}
