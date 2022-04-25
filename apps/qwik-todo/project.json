@@ -1,0 +1,16 @@
+{
+  "root": "apps/qwik-todo",
+  "sourceRoot": "apps/qwik-todo/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@wanews/nx-vite:build",
+      "options": {}
+    },
+    "serve": {
+      "executor": "@wanews/nx-vite:serve",
+      "options": {}
+    }
+  },
+  "tags": []
+}
