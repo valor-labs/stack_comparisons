@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {Task} from "./models/task";
 
 function App() {
-  const [todos, setTodos] = useState([{id: 0, name: 'Starting Item'}] as Array<Task>);
+  const [todos, setTodos] = useState<Array<Task>>([{id: 0, name: 'Starting Item'}]);
 
   const addTodo = (name: string): void => {
     const newTodos: any = [...todos, {name}];
