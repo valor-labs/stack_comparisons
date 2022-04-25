@@ -26,7 +26,7 @@ export class AppComponent {
     this.todoForm.reset()
   }
 
-  delete(task: Task):void {
-    this.tasks.splice(this.tasks.indexOf(task),1)
+  removeTodo(index:number):void {
+    this.tasks.splice(index,1)
   }
 }
