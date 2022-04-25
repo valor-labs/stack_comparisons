@@ -1,14 +1,68 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import React, {useState} from "react";
 
-export function App() {
+import {Task} from "./models/task";
+
+function App() {
+  const [todos, setTodos] = useState<Array<Task>>([{id: 0, name: 'Starting Item'}]);
+
+  const addTodo = (name: string): void => {
+    const newTodos: any = [...todos, {name}];
+    setTodos(newTodos);
+  }
+
+  const removeTodo = (index: number): void => {
+    const newTodos = [...todos]
+    newTodos.splice(index, 1)
+    setTodos(newTodos);
+  }
+
   return (
-    <>
-      <NxWelcome title="react-todo" />
-      <div />
-    </>
+    <div>
+      <h2>Hello React TS!</h2>
+      <TodoForm addTodo={addTodo}/>
+      <ul>
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            removeTodo={removeTodo}
+          />
+        ))}
+      </ul>
+    </div>
   );
 }
 
 export default App;
+
+function Todo({todo, index, removeTodo}: any) {
+  return (
+    <li>
+      {todo.name}
+      <button onClick={() => removeTodo(index)}>Delete</button>
+    </li>
+  )
+}
+
+function TodoForm({addTodo}: any) {
+  const [value, setValue] = React.useState("");
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
+}
