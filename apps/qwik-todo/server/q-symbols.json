@@ -1,0 +1,29 @@
+{
+  "mapping": {
+    "Main_render": "q-03e79ef2.js",
+    "Footer_Filter_onRender_a_onClick": "q-03e79ef2.js",
+    "Footer_onRender_button_onClick": "q-03e79ef2.js",
+    "Footer_render": "q-03e79ef2.js",
+    "Body_render": "q-03e79ef2.js",
+    "Item_useEffect": "q-03e79ef2.js",
+    "Item_onRender_input_onClick": "q-03e79ef2.js",
+    "Item_onRender_label_onDblclick": "q-03e79ef2.js",
+    "Item_onRender_button_onClick": "q-03e79ef2.js",
+    "Item_onRender_input_onBlur": "q-03e79ef2.js",
+    "Item_onRender_input_onKeyup": "q-03e79ef2.js",
+    "Item_render": "q-03e79ef2.js",
+    "Header_onRender_input_onKeyup": "q-03e79ef2.js",
+    "Header_render": "q-03e79ef2.js"
+  },
+  "version": "1",
+  "injections": [
+    {
+      "tag": "link",
+      "location": "head",
+      "attributes": {
+        "rel": "stylesheet",
+        "href": "/q-3a2b0629.css"
+      }
+    }
+  ]
+}
