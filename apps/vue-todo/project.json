@@ -1,0 +1,54 @@
+{
+  "root": "apps/vue-todo",
+  "projectType": "application",
+  "sourceRoot": "apps/vue-todo/src",
+  "targets": {
+    "build": {
+      "executor": "@nx-plus/vue:browser",
+      "options": {
+        "dest": "dist/apps/vue-todo",
+        "index": "apps/vue-todo/public/index.html",
+        "main": "apps/vue-todo/src/main.ts",
+        "tsConfig": "apps/vue-todo/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "mode": "production",
+          "filenameHashing": true,
+          "productionSourceMap": true,
+          "css": {
+            "extract": true,
+            "sourceMap": false
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx-plus/vue:dev-server",
+      "options": {
+        "browserTarget": "vue-todo:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "vue-todo:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/vue-todo/**/*.{ts,tsx,vue}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/vue-todo"],
+      "options": {
+        "jestConfig": "apps/vue-todo/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

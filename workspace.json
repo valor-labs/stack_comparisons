@@ -5,6 +5,8 @@
     "angular-todo-e2e": "apps/angular-todo-e2e",
     "qwik-todo": "apps/qwik-todo",
     "react-todo": "apps/react-todo",
-    "react-todo-e2e": "apps/react-todo-e2e"
+    "react-todo-e2e": "apps/react-todo-e2e",
+    "vue-todo": "apps/vue-todo",
+    "vue-todo-e2e": "apps/vue-todo-e2e"
   }
 }
