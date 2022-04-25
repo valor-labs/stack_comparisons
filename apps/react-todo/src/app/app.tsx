@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-
 import {Task} from "./models/task";
 
 function App() {
+  const [value, setValue] = React.useState("");
   const [todos, setTodos] = useState<Array<Task>>([{id: 0, name: 'Starting Item'}]);
 
   const addTodo = (name: string): void => {
@@ -16,38 +16,6 @@ function App() {
     setTodos(newTodos);
   }
 
-  return (
-    <div>
-      <h2>Hello React TS!</h2>
-      <TodoForm addTodo={addTodo}/>
-      <ul>
-        {todos.map((todo, index) => (
-          <Todo
-            key={index}
-            index={index}
-            todo={todo}
-            removeTodo={removeTodo}
-          />
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default App;
-
-function Todo({todo, index, removeTodo}: any) {
-  return (
-    <li>
-      {todo.name}
-      <button onClick={() => removeTodo(index)}>Delete</button>
-    </li>
-  )
-}
-
-function TodoForm({addTodo}: any) {
-  const [value, setValue] = React.useState("");
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!value) return;
@@ -55,14 +23,33 @@ function TodoForm({addTodo}: any) {
     setValue("");
   };
 
+  const add50k = ():void => {
+    const newTodos: any = [...todos, {name}];
+    let i = 50000
+    while (i > 0) {
+      newTodos.push({id:i, name:'adding item'});
+      i--;
+    }
+    setTodos(newTodos);
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </form>
+    <div>
+      <h2>Hello React TS!</h2>
+      <form onSubmit={handleSubmit}>
+        <input type="text" className="input" value={value} onChange={e => setValue(e.target.value)}/>
+      </form>
+      <button onClick={add50k}>Add 50,000 Todos</button>
+      <ul>
+        {todos.map((todo, index) => (
+          <li>
+            {todo.name}
+            <button onClick={() => removeTodo(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
+
+export default App;

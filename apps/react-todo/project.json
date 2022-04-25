@@ -63,6 +63,23 @@
         }
       }
     },
+    "serve:prod": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "react-todo:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-todo:build:development"
+        },
+        "production": {
+          "buildTarget": "react-todo:build:production",
+          "hmr": false
+        }
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
