@@ -1,0 +1,13 @@
+<div>
+  <h2>Hello Angular</h2>
+  <form [formGroup]="todoForm" (ngSubmit)="addTask()">
+    <input formControlName="name">
+    <button type="submit">Add a task</button>
+  </form>
+  <ul>
+    <li *ngFor="let task of tasks">
+      {{task.name}}
+      <button (click)="delete(task)">Delete</button>
+    </li>
+  </ul>
+</div>
