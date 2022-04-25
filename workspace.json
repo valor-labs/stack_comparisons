@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "angular-todo": "apps/angular-todo",
+    "angular-todo-e2e": "apps/angular-todo-e2e",
     "react-todo": "apps/react-todo",
     "react-todo-e2e": "apps/react-todo-e2e"
   }

@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/angular-todo",
+  "sourceRoot": "apps/angular-todo/src",
+  "prefix": "labs",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/angular-todo",
+        "index": "apps/angular-todo/src/index.html",
+        "main": "apps/angular-todo/src/main.ts",
+        "polyfills": "apps/angular-todo/src/polyfills.ts",
+        "tsConfig": "apps/angular-todo/tsconfig.app.json",
+        "assets": [
+          "apps/angular-todo/src/favicon.ico",
+          "apps/angular-todo/src/assets"
+        ],
+        "styles": ["apps/angular-todo/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/angular-todo/src/environments/environment.ts",
+              "with": "apps/angular-todo/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-todo:build:production"
+        },
+        "development": {
+          "browserTarget": "angular-todo:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-todo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/angular-todo/**/*.ts",
+          "apps/angular-todo/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/angular-todo"],
+      "options": {
+        "jestConfig": "apps/angular-todo/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
